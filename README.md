@@ -27,9 +27,9 @@ Table of contents
 Installation
 =============
 
-To run the tool locally, you need to have [R](https://www.r-project.org/) installed on your computer.
+To run the tool locally, you need to install [R](https://www.r-project.org/).
 
-This project wouldn't be possible without the amazing community behind the following tools:
+You will also need to ``install.packages()`` following tools and libraries:
 
 - [geojsonio](https://cran.r-project.org/web/packages/geojsonio/index.html)
 - [GISTools](https://cran.r-project.org/web/packages/GISTools/index.html)
