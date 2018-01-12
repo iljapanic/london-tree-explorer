@@ -1,4 +1,5 @@
-boroughs = read.csv('./data/london-buroughs.csv', header=TRUE, sep=';')
+boroughs_file = './data/london-buroughs.csv'
+boroughs = read.csv(boroughs_file, header=TRUE, sep=';')
 rownames(boroughs) <- boroughs$Name
 
 
@@ -13,7 +14,6 @@ getBoroughNames = function() {
 getBoroughCode = function() {
   return(boroughs$Code)
 }
-
 
 getBoroughWards = function() {
   return(boroughs$Wards)

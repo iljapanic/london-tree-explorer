@@ -1,9 +1,15 @@
-BNG = '+init=epsg:27700'
-WGS = '+proj=longlat +datum=WGS84'
-map_style = providers$Esri.WorldGrayCanvas
+# source data
 london_boundaries_file = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
 ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
 tree_data_file = './data/trees.csv'
+
+# projections codes used throughout functions
+BNG = '+init=epsg:27700'
+WGS = '+proj=longlat +datum=WGS84'
+
+# Leaflet map style
+map_style = providers$Esri.WorldGrayCanvas
+
 
 # gets borough boundaries
 getBorough = function(borough) {
@@ -156,20 +162,3 @@ getLondonTrees = function() {
 }
 
 
-
-# plots all London trees on a graph
-plotLondonTrees = function() {
-  
-  trees = getLondonTrees()
-  
-  # convert spatial data frame to a regular one
-  df <- as.data.frame(trees)
-  
-  # plot it
-  plot = ggplot(df, aes(x=df[1], y=df[2]))
-  + geom_point(size=0.06)
-  
-  # save it
-  ggsave(filename='./london-trees.png', plot=plot)
-  
-}
