@@ -1,9 +1,9 @@
 ui = fluidPage(
   title = 'London tree explorer',
-  style = 'padding: 0',
+  style = 'padding: 0;',
   shinyjs::useShinyjs(),
   tags$style(type = 'text/css', 'html, body {width:100%;height:100vh;padding:0;}'),
-  
+  tags$head( tags$link(rel = 'shortcut icon', href = './data/favicon.png')),
   fluidRow(
     
     # main panel for displaying maps and outputs

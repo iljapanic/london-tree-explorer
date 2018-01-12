@@ -1,10 +1,12 @@
 BNG = '+init=epsg:27700'
 WGS = '+proj=longlat +datum=WGS84'
 map_style = providers$Esri.WorldGrayCanvas
+london_boundaries_file = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
+ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
+tree_data_file = './data/trees.csv'
 
 # gets borough boundaries
 getBorough = function(borough) {
-  london_boundaries_file = './data/Local_Authority_Districts_December_2015_Generalised_Clipped_Boundaries_in_Great_Britain.geojson'
   
   # get UK borough boundaries
   EW = geojson_read(london_boundaries_file, what = 'sp')
@@ -23,8 +25,6 @@ getBorough = function(borough) {
 
 # gets borough wards
 getBoroughWards = function(borough) {
-  
-  ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
   
   # load ward shape file
   london_wards = readOGR(ward_shape_file)
@@ -46,7 +46,6 @@ getBoroughWards = function(borough) {
 
 # loads all trees
 loadTrees = function() {
-  tree_data_file = './data/trees.csv'
   
   # load in data
   tree_data = read.csv(tree_data_file, header=TRUE)
@@ -115,8 +114,7 @@ calculateWardTrees = function(borough) {
 
 # gets London boundary
 getLondon = function() {
-  london_boundaries_file = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
-  
+
   # get UK borough boundaries
   EW = geojson_read(london_boundaries_file, what = 'sp')
   
@@ -133,8 +131,6 @@ getLondon = function() {
 # gets all wards in London
 
 getLondonWards = function() {
-  
-  ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
   
   # load ward shape file
   london_wards_WGS = readOGR(ward_shape_file)
