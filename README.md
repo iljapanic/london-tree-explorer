@@ -49,11 +49,9 @@ Project structure
 
 **`app.R`** - pulls together and sources all the app components (this is where you initialize the app)
 
+**`/components`** - abstracted reusable app components
 
 **`/data`** - source data
-
-
-**`/modules`** - abstracted reusable app components
 
 
 **`deploy.R`** - function for deploying the app on [shinyapps.io](http://www.shinyapps.io/)
