@@ -18,8 +18,8 @@ Table of contents
   * [Project Structure](#project-structure)
   * Data *(coming soon)*
   * [Components](#components)
-  * Functions *(coming soon)*
-  * Toolkit *(coming soon)*
+  * [Functions](#functions)
+  * [Toolkit](#toolkit)
   * [Roadmap](#roadmap)
   * [Authors](#authors)
   * Attribution *(coming soon)*
@@ -64,7 +64,9 @@ Project structure
 Data
 ====
 
-*coming soon*
+*more info coming soon*
+
+[The Local Authority Maintained Trees](https://data.london.gov.uk/dataset/local-authority-maintained-trees)
 
 
 Components
@@ -127,7 +129,7 @@ Functions
 Toolkit
 =======
 
-*coming soon*
+*more info coming soon*
 
 
 ## 'Plain'
@@ -143,7 +145,7 @@ Toolkit
 ![Tree Heatmap](./screenshots/map4-heatmap.png)
 
 ## Ward Tree Density
-![Ward Tree Density](./screenshots/map5-density)
+![Ward Tree Density](./screenshots/map5-density.png)
 
 
 Roadmap
