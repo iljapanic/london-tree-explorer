@@ -1,6 +1,6 @@
 # London Tree Explorer
 
-An R Shiny toolkit for exploring urban greenery in London.
+R Shiny toolkit for exploring urban greenery in London.
 
 
 
