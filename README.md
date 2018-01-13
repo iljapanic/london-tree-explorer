@@ -16,23 +16,23 @@ Table of contents
 
   * [Installation](#installation)
   * [Project Structure](#project-structure)
-  * [Data](#data)
+  * Data *(coming soon)*
   * [Components](#components)
-  * [Functions](#functions)
-  * [Toolkit](#toolkit)
+  * Functions *(coming soon)*
+  * Toolkit *(coming soon)*
   * [Roadmap](#roadmap)
   * [Authors](#authors)
-  * [Attribution](#attribution)
-  * [License](#license)
+  * Attribution *(coming soon)*
+  * License *(coming soon)*
 
 
 
 Installation
 =============
 
-To run the tool locally, you need to install [R](https://www.r-project.org/).
+To use the toolkit locally, you need to download and install [R](https://www.r-project.org/) on your computer.
 
-You will also need to ``install.packages()`` following tools and libraries:
+You also need to install following R packages:
 
 - [geojsonio](https://cran.r-project.org/web/packages/geojsonio/index.html)
 - [GISTools](https://cran.r-project.org/web/packages/GISTools/index.html)
@@ -43,7 +43,8 @@ You will also need to ``install.packages()`` following tools and libraries:
 - [spatstat](https://cran.r-project.org/package=spatstat)
 
 
-I highly recommend using [RStudio](https://www.rstudio.com/) for working with R.
+You can install [RStudio](https://www.rstudio.com/) while you are at it. It will make your work with R much easier.
+
 
 
 Project structure
@@ -84,7 +85,7 @@ Components
 **`plots.R`** - functions for generating plots, charts and graphs
 
 
-**`shiny-server.R`** - 'reactive' server setup for the R Shiny app
+**`shiny-server.R`** - 'reactive' server configuration for the R Shiny app
 
 
 **`shiny-ui.R`** - interface for the R Shiny app
@@ -106,6 +107,8 @@ Roadmap
 =======
 - [ ] Improve speed and loading time
 - [ ] Include park and greenspace data
+- [ ] Scale the toolkit for exploring at the city level
+- [ ] Implement the 'greenest route' functionality 
 
 
 Authors
@@ -117,7 +120,8 @@ Authors
 Attribution
 ===========
 
-This project would not be possible without the fantastic community of developers, scholars, data scientists, and hobbyists writing open-source tools, writing tutorials and answering questions on StackExchange.
+*coming soon*
+
 
 
 License

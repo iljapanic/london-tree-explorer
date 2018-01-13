@@ -1,7 +1,8 @@
 # source data
-london_boundaries_file = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
+london_boundaries_file_URL = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
+london_boundaries_file = './data/GB_Districts_Boundaries_2015.geojson'
 ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
-tree_data_file = './data/trees.csv'
+tree_data_file = './data/london-trees.csv'
 
 # projections codes used throughout functions
 BNG = '+init=epsg:27700'
@@ -50,6 +51,13 @@ getBoroughWards = function(borough) {
   
 }
 
+loadTreesDf = function() {
+  # load in data
+  tree_data = read.csv(tree_data_file, header=TRUE)
+  
+  return(tree_data)
+}
+
 # loads all trees
 loadTrees = function() {
   
@@ -87,6 +95,7 @@ getBoroughTrees = function(borough) {
   
   #clip all trees outside of borough
   borough_trees = trees[borough_clip, ]
+  borough_trees_WGS = spTransform(london_trees, WGS)
   
   return(borough_trees)
 }
@@ -130,7 +139,7 @@ getLondon = function() {
   london_map_WGS = spTransform(london_map_BNG, CRS(WGS))
   
   
-  return(london_map_BNG)
+  return(london_map_WGS)
 }
 
 
@@ -142,7 +151,7 @@ getLondonWards = function() {
   london_wards_WGS = readOGR(ward_shape_file)
   
   # transform to BNG
-  london_wards_BNG = spTransform(london_wards, BNG)
+  london_wards_BNG = spTransform(london_wards_WGS, BNG)
   
   
   return(london_wards_WGS)
@@ -158,7 +167,9 @@ getLondonTrees = function() {
   #clip all trees outside of borough
   london_trees = trees[london_clip, ]
   
-  return(london_trees)
+  london_trees_WGS = spTransform(london_trees, CRS(WGS))
+  
+  return(london_trees_WGS)
 }
 
 
