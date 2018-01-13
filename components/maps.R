@@ -10,7 +10,7 @@ tree_size = 3
 borough_overlay = '#999999'
 
 
-# return Leaflet map with borough boundaries
+# returns Leaflet map with borough boundaries
 mapBorough = function(borough) {
   borough_clip = getBorough(borough)
   

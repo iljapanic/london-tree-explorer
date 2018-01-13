@@ -94,7 +94,34 @@ Components
 Functions
 =========
 
-*coming soon*
+### ``data-handling.R``
+
+|  Function                     | Arguments                        |       Ouput             |
+| :-------------              |:---------------------:            | :----------------------|
+| ``getBorough()``          |``borough``                         | SpatialPolygonsDataFrame with boundaries for a given borough  |
+| ``getBoroughWards()``     | ``borough``                  |   SpatialPolygonsDataFrame with ward boundaries for a given borough |
+| ``loadTreesDf()``         |       NULL                |            DataFrame containing all the source data    |
+|``loadTrees()``					| NULL		                 | SpatialPointsDataFrame with all a trees.          |
+|``getBoroughTrees()``       | ``borough``                | SpatialPointsDataFrame with trees in a given borough.  |
+|``calculateWardTrees()``    | ``borough``               | SpatialPolygonsDataFrame with wards containing the (1) total number and (2) tree density for a given borough |
+|``getLondon()``             | NULL                      | SpatialPolygonsDataFrame with boundaries for all the bouroughs |
+|``getLondonWards()``        | NULL                    |  SpatialPolygonsDataFrame with boundaries for all the wards |
+|``getLondonTrees()``       | NULL                     | SpatialPointsDataFrame with all the trees in London
+				
+
+
+### ``maps.R``
+
+|  Function                     | Arguments                        |       Ouput             |
+| :-------------              |:---------------------:            | :----------------------|
+| ``mapBorough()``          |``borough``                          | 'Plain' map for a given borough   |
+| ``mapBoroughTrees()``     | ``borough``                  |   'Trees' map for a given borough |
+| ``mapBoroughTreeClusters()``         |       ``borough`` <br><br> ``dynamicInput``                |            'Tree Cluster' map for a given borough <br><br> when the value from the slider in Shiny changes, the functions runs again with the selected value    |
+|``mapBoroughWardsTreeDensity()`` | ``borough``                            | 'Ward Tree Density' map showing wards and their tree density for a given borough 		                 | SpatialPointsDataFrame with all the trees.          |
+|``mapBoroughTreeHeatmap()``       | ``borough``                 | 'Tree heatmap' for a given borough  
+				
+
+
 
 
 Toolkit
@@ -103,9 +130,26 @@ Toolkit
 *coming soon*
 
 
+## 'Plain'
+![Plain](./screenshots/map1-plain.png)
+
+## 'Trees'
+![Trees](./screenshots/map2-trees.png)
+
+## 'Tree Cluster
+![Tree Cluster](./screenshots/map3-clusters.png)
+
+## Tree Heatmap
+![Tree Heatmap](./screenshots/map4-heatmap.png)
+
+## Ward Tree Density
+![Ward Tree Density](./screenshots/map5-density)
+
+
 Roadmap
 =======
 - [ ] Improve speed and loading time
+- [ ] Add Plots and Graphs
 - [ ] Include park and greenspace data
 - [ ] Scale the toolkit for exploring at the city level
 - [ ] Implement the 'greenest route' functionality 
