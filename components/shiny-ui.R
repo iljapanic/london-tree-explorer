@@ -34,7 +34,7 @@ ui = fluidPage(
         'selectView',
         label = 'Select View:',
         choices = list('Plain' = 1, 'Trees' = 2, 'Tree Cluster' = 3, 'Tree Heatmap' = 4 , 'Ward Tree Density' = 5),
-        selected=4
+        selected=1
       ),
       
       
