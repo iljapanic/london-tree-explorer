@@ -95,7 +95,7 @@ getBoroughTrees = function(borough) {
   
   #clip all trees outside of borough
   borough_trees = trees[borough_clip, ]
-  borough_trees_WGS = spTransform(london_trees, WGS)
+  borough_trees_WGS = spTransform(borough_trees, WGS)
   
   return(borough_trees)
 }
