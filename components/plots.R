@@ -3,11 +3,6 @@ trees_df = as.data.frame(trees)
 trees_sample = head(trees_df, 15000)
 boroughs = getBoroughs()
 london = getLondon()
-# london_df = as.data.frame(london)
-# london_df = london_df %>% left_join(. , boroughs, by=c('lad15cd'='Code'))
-
-
-# new_london_df =  SpatialPointsDataFrame(df[,1:2], df, proj4string = CRS(WGS))
 
 london_fortified = tidy(london, region = 'lad15cd')
 london_fortified = london_fortified %>% left_join(. , boroughs, by=c('id'='Code')) 
@@ -43,12 +38,6 @@ plotBoroughTreeDistribution = function() {
   return(plot)
 }
 
-
-wards = calculateAllWardTrees()
-
-wards_df = as.data.frame(wards)
-
-
 plotWardsTreeDensity = function() {
   
 }
@@ -58,10 +47,10 @@ plotWardsTreeDensity = function() {
 # plots all the trees, might take a while...
 plotAllTrees = function() {
   
-  plot = ggplot(trees_sample,
+  plot = ggplot(trees_df,
     aes(
-      x = trees_sample$Easting.1,
-      y = trees_sample$Northing.1
+      x = trees_df$Easting.1,
+      y = trees_df$Northing.1
     )) +
     geom_point(
       size=0.00,
@@ -75,12 +64,10 @@ plotAllTrees = function() {
     theme(axis.title.x = element_text(margin = margin(t = 20, r = 0, b = 0, l = 0))) +
     coord_map()
   
-  newPlot = plot + geom_hex(bins=10)
-  
   # save it
-  # ggsave(filename='./figures/london-trees.png', plot=plot)
+  ggsave(filename='./figures/london-all-trees.png', plot=plot)
   
-  return(newPlot)
+  return(plot)
   
 }
 
