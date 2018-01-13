@@ -1,15 +1,13 @@
-trees = getLondonTrees()
-trees_df = as.data.frame(trees)
-trees_sample = head(trees_df, 15000)
-boroughs = getBoroughs()
-london = getLondon()
-
-london_fortified = tidy(london, region = 'lad15cd')
-london_fortified = london_fortified %>% left_join(. , boroughs, by=c('id'='Code')) 
-london_fortified$street.trees[ is.na(london_fortified$street.trees)] = 0.001
-heatmap_pallete_source = brewer.pal(n=9, name='YlGn')
-
-
+# trees = getLondonTrees()
+# trees_df = as.data.frame(trees)
+# trees_sample = head(trees_df, 15000)
+# boroughs = getBoroughs()
+# london = getLondon()
+# 
+# london_fortified = tidy(london, region = 'lad15cd')
+# london_fortified = london_fortified %>% left_join(. , boroughs, by=c('id'='Code')) 
+# london_fortified$street.trees[ is.na(london_fortified$street.trees)] = 0.001
+# heatmap_pallete_source = brewer.pal(n=9, name='YlGn')
 
 
 
@@ -26,8 +24,6 @@ plotBoroughTreeDensity = function() {
 
 }
 
-plotBoroughTreeDensity()
-
 # plot tree ditribution
 plotBoroughTreeDistribution = function() {
   boroughs = getBoroughs()
@@ -38,6 +34,7 @@ plotBoroughTreeDistribution = function() {
   return(plot)
 }
 
+
 plotWardsTreeDensity = function() {
   
 }
@@ -47,14 +44,17 @@ plotWardsTreeDensity = function() {
 # plots all the trees, might take a while...
 plotAllTrees = function() {
   
-  plot = ggplot(trees_df,
-    aes(
-      x = trees_df$Easting.1,
-      y = trees_df$Northing.1
-    )) +
+  plot = ggplot(
+    ) +
     geom_point(
-      size=0.00,
-      color='#79b670'
+      data = trees_df,
+      aes(
+        x = trees_df$Easting.1,
+        y = trees_df$Northing.1,
+        size=0.5,
+        stroke=0
+      )
+     
     ) + 
     theme_minimal() +
     scale_size_identity(trans='identity') +
@@ -70,5 +70,3 @@ plotAllTrees = function() {
   return(plot)
   
 }
-
-plotAllTrees()
