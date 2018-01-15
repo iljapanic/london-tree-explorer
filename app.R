@@ -1,11 +1,11 @@
-source('components/load-libraries.R')
-source('components/borough-handler.R')
-source('components/data-handling.R')
-source('components/maps.R')
+# get everything set up
+source('components/packages.R')
+source('components/data-load.R') # this one takes a while...
+source('components/data-get.R')
+source('components/map.R')
+source('components/plot')
 source('components/shiny-server.R')
 source('components/shiny-ui.R')
 
+# run the shiny app
 shinyApp(ui, server)
-
-
-source('components/plots.R')

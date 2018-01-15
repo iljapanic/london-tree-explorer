@@ -92,13 +92,15 @@ Components
 
 **`shiny-ui.R`** - interface for the R Shiny app
 
+<br>
 
 Functions
 =========
 
+
 ### ``data-handling.R``
 
-|  Function                     | Arguments                        |       Ouput             |
+|  Function                     | Arguments                        |       Return             |
 | :-------------              |:---------------------:            | :----------------------|
 | ``getBorough()``          |``borough``                         | SpatialPolygonsDataFrame with boundaries for a given borough  |
 | ``getBoroughWards()``     | ``borough``                  |   SpatialPolygonsDataFrame with ward boundaries for a given borough |
@@ -110,11 +112,12 @@ Functions
 |``getLondonWards()``        | NULL                    |  SpatialPolygonsDataFrame with boundaries for all the wards |
 |``getLondonTrees()``       | NULL                     | SpatialPointsDataFrame with all the trees in London
 				
+<br>
 
 
 ### ``maps.R``
 
-|  Function                     | Arguments                        |       Ouput             |
+|  Function                     | Arguments                        |       Return             |
 | :-------------              |:---------------------:            | :----------------------|
 | ``mapBorough()``          |``borough``                          | 'Plain' map for a given borough   |
 | ``mapBoroughTrees()``     | ``borough``                  |   'Trees' map for a given borough |
@@ -123,7 +126,7 @@ Functions
 |``mapBoroughTreeHeatmap()``       | ``borough``                 | 'Tree heatmap' for a given borough  
 				
 
-
+<br>
 
 
 Toolkit

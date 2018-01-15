@@ -1,15 +1,20 @@
-# source data
-london_boundaries_file_URL = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
-london_boundaries_file = './data/GB_Districts_Boundaries_2015.geojson'
-ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
-tree_data_file = './data/london-trees.csv'
 
-# projections codes used throughout functions
-BNG = '+init=epsg:27700'
-WGS = '+proj=longlat +datum=WGS84'
+getBoroughs = function() {
+  return(boroughs)
+}
 
-# Leaflet map style
-map_style = providers$Esri.WorldGrayCanvas
+getBoroughNames = function() {
+  return(boroughs$Name)
+}
+
+getBoroughCode = function() {
+  return(boroughs$Code)
+}
+
+getBoroughWards = function() {
+  return(boroughs$Wards)
+}
+
 
 
 # gets borough boundaries
@@ -151,7 +156,7 @@ calculateAllWardTrees = function() {
 
 # gets London boundary
 getLondon = function() {
-
+  
   # get UK borough boundaries
   EW = geojson_read(london_boundaries_file, what = 'sp')
   
@@ -193,5 +198,3 @@ getLondonTrees = function() {
   
   return(london_trees_WGS)
 }
-
-
