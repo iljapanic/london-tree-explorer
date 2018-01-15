@@ -3,7 +3,7 @@ source('components/packages.R')
 source('components/data-load.R') # this one takes a while...
 source('components/data-get.R')
 source('components/map.R')
-source('components/plot')
+source('components/plot.R')
 source('components/shiny-server.R')
 source('components/shiny-ui.R')
 

@@ -1,3 +1,4 @@
+# common map styling
 map_style = providers$CartoDB.Positron
 min_zoom = 9
 max_zoom = 18
@@ -12,7 +13,7 @@ borough_overlay = '#999999'
 
 # returns Leaflet map with borough boundaries
 mapBorough = function(borough) {
-  borough_clip = getBorough(borough)
+  borough_clip = getBoroughBoundary(borough)
   
   map =
     leaflet(borough_clip) %>%
@@ -28,9 +29,10 @@ mapBorough = function(borough) {
   return(map)
 }
 
+
 # map borough trees
 mapBoroughTrees = function(borough, mapOutput) {
-  borough_clip = getBorough(borough)
+  borough_clip = getBoroughBoundary(borough)
   trees = getBoroughTrees(borough)
 
   map =
@@ -57,9 +59,10 @@ mapBoroughTrees = function(borough, mapOutput) {
   return(map)
 }
 
+
 # put trees into cluster for borough
 mapBoroughTreeClusters = function(borough, dynamicInput) {
-  borough_clip = getBorough(borough)
+  borough_clip = getBoroughBoundary(borough)
   trees = getBoroughTrees(borough)
   
   map =
@@ -147,7 +150,7 @@ mapBoroughWardsTreeDensity = function(borough) {
 # generate a borough tree heat map 
 mapBoroughTreeHeatmap = function(borough) {
   
-  borough_clip = getBorough(borough)
+  borough_clip = getBoroughBoundary(borough)
   trees = getBoroughTrees(borough)
   
   map =
