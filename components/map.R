@@ -95,9 +95,44 @@ mapBoroughTreeClusters = function(borough, dynamicInput) {
   return(map)
 }
 
+# generate a borough tree heat map 
+mapBoroughTreeHeatmap = function(borough) {
+  
+  borough_clip = getBoroughBoundary(borough)
+  trees = getBoroughTrees(borough)
+  
+  map =
+    leaflet(trees) %>%
+    addProviderTiles(
+      map_style,
+      options = providerTileOptions(minZoom = min_zoom, maxZoom = max_zoom)
+    ) %>%
+    addPolygons(
+      data = borough_clip,
+      color = borough_overlay,
+      fillColor = borough_overlay,
+      weight = 1,
+      smoothFactor = 0.5,
+      opacity = 1.0,
+      fillOpacity = 0.25
+    ) %>%
+    addHeatmap(
+      radius = 8,
+      # cellSize = 14,
+      blur = 12,
+      max = 0.65,
+      gradient = heatmap_pallete
+    )
+  
+  return(map)
+  
+}
+
+
+
 # map wards and their tree density
 mapBoroughWardsTreeDensity = function(borough) {
-  wards = calculateWardTrees(borough)
+  wards = getBoroughWards(borough)
   
   # get a color pallete with 5 bins
   pal = colorBin(palette='Greens', domain = wards$treeDensity, bins = 5)
@@ -145,37 +180,4 @@ mapBoroughWardsTreeDensity = function(borough) {
     )
   
   return(map)
-}
-
-# generate a borough tree heat map 
-mapBoroughTreeHeatmap = function(borough) {
-  
-  borough_clip = getBoroughBoundary(borough)
-  trees = getBoroughTrees(borough)
-  
-  map =
-    leaflet(trees) %>%
-    addProviderTiles(
-      map_style,
-      options = providerTileOptions(minZoom = min_zoom, maxZoom = max_zoom)
-    ) %>%
-    addPolygons(
-      data = borough_clip,
-      color = borough_overlay,
-      fillColor = borough_overlay,
-      weight = 1,
-      smoothFactor = 0.5,
-      opacity = 1.0,
-      fillOpacity = 0.25
-    ) %>%
-    addHeatmap(
-      radius = 8,
-      # cellSize = 14,
-      blur = 12,
-      max = 0.65,
-      gradient = heatmap_pallete
-    )
-  
-  return(map)
-  
 }

@@ -35,11 +35,6 @@ plotBoroughTreeDistribution = function() {
 }
 
 
-plotWardsTreeDensity = function() {
-  
-}
-
-
 
 # plots all the trees, might take a while...
 plotAllTrees = function() {

@@ -61,7 +61,6 @@ getBoroughWards = function(borough) {
 }
 
 
-
 # fetches only borough trees
 getBoroughTrees = function(borough) {
   
@@ -78,7 +77,6 @@ getBoroughTrees = function(borough) {
 getAllBoroughBoundaries = function() {
   return(london_boundaries)
 }
-
 
 
 # fetches all London trees

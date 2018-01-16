@@ -1,10 +1,12 @@
 # source data - trees and borough info
 tree_data_file = './data/london-trees.csv'
 boroughs_file = './data/london-buroughs.csv'
+wards_file = './data/london-wards.csv'
 
 # source data - boundaries
 london_boundaries_url = 'http://geoportal.statistics.gov.uk/datasets/8edafbe3276d4b56aec60991cbddda50_2.geojson'
 london_boundaries_file = './data/GB_Districts_Boundaries_2015.geojson'
+ward_geojson_file = './data/london-wards.geojson'
 ward_shape_file = './data/LondonWardsBoundaries/LondonWardsNew.shp'
 
 # projection codes - all the functions should return results in WGS
@@ -28,9 +30,8 @@ london_boundaries = spTransform(london_boundaries, WGS)
 
 
 # get London's wards
-london_wards = readOGR(ward_shape_file)
+london_wards = geojson_read(ward_geojson_file, what = 'sp')
 london_wards = spTransform(london_wards, WGS)
-
 
 # load trees
 tree_data = read.csv(tree_data_file, header=TRUE)
