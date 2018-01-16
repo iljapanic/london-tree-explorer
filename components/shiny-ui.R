@@ -3,7 +3,6 @@ ui = fluidPage(
   style = 'padding: 0;',
   shinyjs::useShinyjs(),
   tags$style(type = 'text/css', 'html, body {width:100%;height:100vh;padding:0;}'),
-  tags$head( tags$link(rel = 'shortcut icon', href = './data/favicon.png')),
   fluidRow(
     
     # main panel for displaying maps and outputs
@@ -37,6 +36,18 @@ ui = fluidPage(
         selected=1
       ),
       
+      # conditionalPanel(
+      #   hr(),
+      #   condition = 'input.selectView == "1"',
+      #   textInput(
+      #     'routeA',
+      #     'Starting point'
+      #   ),
+      #   textInput(
+      #     'routeB',
+      #     'Finish point'
+      #   )
+      # ),
       
       conditionalPanel(
         hr(),

@@ -44,7 +44,7 @@ server = function(input, output) {
     clusterValue = clusterSlider()
     
     if (checkView == 1) {
-      withProgress(message = paste('Rendering ', selectedBorough, ' map'), {
+      withProgress(message = paste('Rendering ', selectedBorough), {
         mapBorough(selectedBorough)
       })
     } else if (checkView == 2) {
@@ -66,44 +66,13 @@ server = function(input, output) {
     }
   })
   
-  # tree layer
+  # tree counter
   # observe({
   #   selectedBorough = boroughInput()
   #   checkView = viewInput()
   #   baseMap = 'boroughMap'
-  # 
-  #   # trees
-  #   if (checkView == 2) {
-  #     
-  #   }
-  # })
-  
-  # observe({
-  #   selectedBorough = boroughInput()
-  #   checkView = viewInput()
-  #   baseMap = 'boroughMap'
+  #   userClick = input$map_marker_click
   #   
-  #   
-  #   # trees
-  #   if (checkView == 3) {
-  #     withProgress(message = paste('Plotting tree clusters for ', selectedBorough), {
-  #       mapBoroughTrees(selectedBorough, baseMap)
-  #     })
-  #   }
-  # })
-
-  # # tree clusters layer
-  # observe({
-  #   selectedBorough = boroughInput()
-  #   showClusters <- clusterCheck()
-  #   clusterRadius <- clusterRadiusInput()
-  #   baseMap = 'boroughMap'
-  #   
-  #   if (showClusters) {
-  #     withProgress(message = paste('Clustering trees for ', selectedBorough), {
-  #       mapBoroughTreeClusters(selectedBorough, baseMap, clusterRadius)
-  #     })
-  #   }
   # })
   
   
