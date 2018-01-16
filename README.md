@@ -21,7 +21,7 @@ Table of contents
   * [Functions](#functions)
   * [Toolkit](#toolkit)
   * [Roadmap](#roadmap)
-  * [Authors](#authors)
+  * [Contributors](#contributors)
   * Attribution *(coming soon)*
   * License *(coming soon)*
 
@@ -30,17 +30,7 @@ Table of contents
 Installation
 =============
 
-To use the toolkit locally, you need to download and install [R](https://www.r-project.org/) on your computer.
-
-You also need to install following R packages:
-
-- [geojsonio](https://cran.r-project.org/web/packages/geojsonio/index.html)
-- [GISTools](https://cran.r-project.org/web/packages/GISTools/index.html)
-- [leaflet.extras](https://cran.r-project.org/package=leaflet.extras)
-- [shiny](https://cran.r-project.org/package=shiny)
-- [shinyjs](https://cran.r-project.org/package=shinyjs)
-- [sp](https://cran.r-project.org/package=sp)
-- [spatstat](https://cran.r-project.org/package=spatstat)
+To use the toolkit locally, you need to download and install [R](https://www.r-project.org/) on your computer along with all the packages listed in ``components/packages.R``
 
 
 You can install [RStudio](https://www.rstudio.com/) while you are at it. It will make your work with R much easier.
@@ -69,22 +59,25 @@ Data
 [The Local Authority Maintained Trees](https://data.london.gov.uk/dataset/local-authority-maintained-trees)
 
 
-Components
+Components overview
 ==========
 
-**`borough-handler.R`** - barebones functions with no arguments for returning borough data 
+
+**`data-get.R`** - functions for retrieving variables and specified subsets of variables
+
+**`data-calculate.R`** - one off functions for calculating and storing new values
 
 
-**`data-handling.R`** - a set of functions for handling and manipulating data for use in other parts of the app
+**`data-load.R`** - load all the source data and store it into global variables
 
 
-**`load-libraries.R`** - imports all the necessary libraries
+**`map.R`** - functions for rendering different types of maps
 
 
-**`maps.R`** - a set of functions for rendering different types of maps
+**`packages.R`** - import all the necessary packages
 
 
-**`plots.R`** - functions for generating plots, charts and graphs
+**`plot.R`** - functions for generating plots, charts and graphs
 
 
 **`shiny-server.R`** - 'reactive' server configuration for the R Shiny app
@@ -92,30 +85,36 @@ Components
 
 **`shiny-ui.R`** - interface for the R Shiny app
 
+
 <br>
 
 Functions
 =========
 
 
-### ``data-handling.R``
+### ``data-get.R``
 
 |  Function                     | Arguments                        |       Return             |
 | :-------------              |:---------------------:            | :----------------------|
-| ``getBorough()``          |``borough``                         | SpatialPolygonsDataFrame with boundaries for a given borough  |
+| ``getBoroughs()``          |NULL                         | DataFrame with data for all boroughs  |
+| ``getBoroughNames()``          |NULL                         | DataFrame with data for all borough names  |
+| ``getBoroughCode()``          |NULL                         | DataFrame with data for all borough codes  |
+| ``getBoroughWards()``          |NULL                         | DataFrame with data for all borough wards code prefix  |
+| ``getLondonWards()``          |NULL                         | SpatialPolygonsDataFrame with boundaries for all London wards  |
+| ``getBoroughs()``          |NULL                         | DataFrame with data for all boroughs  |
+| ``getBoroughBoundary()``          |``borough``                         | SpatialPolygonsDataFrame with boundaries for a given borough  |
 | ``getBoroughWards()``     | ``borough``                  |   SpatialPolygonsDataFrame with ward boundaries for a given borough |
-| ``loadTreesDf()``         |       NULL                |            DataFrame containing all the source data    |
-|``loadTrees()``					| NULL		                 | SpatialPointsDataFrame with all a trees.          |
 |``getBoroughTrees()``       | ``borough``                | SpatialPointsDataFrame with trees in a given borough.  |
-|``calculateWardTrees()``    | ``borough``               | SpatialPolygonsDataFrame with wards containing the (1) total number and (2) tree density for a given borough |
-|``getLondon()``             | NULL                      | SpatialPolygonsDataFrame with boundaries for all the bouroughs |
+| ``getTrees()``         |       NULL                |            SpatialPolygonsDataFrame with all the trees    |
+| ``getTreesDf()``         |       NULL                |            DataFrame containing all the source tree data    |
 |``getLondonWards()``        | NULL                    |  SpatialPolygonsDataFrame with boundaries for all the wards |
-|``getLondonTrees()``       | NULL                     | SpatialPointsDataFrame with all the trees in London
+|``getAllLondonTrees()``       | NULL                     | SpatialPointsDataFrame with all the trees in London |
+|``getAllBoroughBoundaries()``       | NULL                     | SpatialPointsDataFrame with all the borough boundaries in London |
 				
 <br>
 
 
-### ``maps.R``
+### ``map.R``
 
 |  Function                     | Arguments                        |       Return             |
 | :-------------              |:---------------------:            | :----------------------|
@@ -153,14 +152,14 @@ Toolkit
 
 Roadmap
 =======
-- [ ] Improve speed and loading time
+- [X] Improve speed and loading time
 - [ ] Add Plots and Graphs
 - [ ] Include park and greenspace data
 - [ ] Scale the toolkit for exploring at the city level
 - [ ] Implement the 'greenest route' functionality 
 
 
-Authors
+Contributors
 =======
 
 * Ilja Panic	- [Web](https://iljapanic.me) | [Twitter](https://twitter.com/iljapanic) | [GitHub](https://github.com/iljapanic/)
