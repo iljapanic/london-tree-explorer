@@ -96,15 +96,15 @@ Functions
 
 |  Function                     | Arguments                        |       Return             |
 | :-------------              |:---------------------:            | :----------------------|
+| ``getBoroughBoundary()``          |``borough``                         | SpatialPolygonsDataFrame with boundaries for a given borough  |
+| ``getBoroughWards()``     | ``borough``                  |   SpatialPolygonsDataFrame with ward boundaries for a given borough |
+|``getBoroughTrees()``       | ``borough``                | SpatialPointsDataFrame with trees in a given borough.  |
 | ``getBoroughs()``          |NULL                         | DataFrame with data for all boroughs  |
 | ``getBoroughNames()``          |NULL                         | DataFrame with data for all borough names  |
 | ``getBoroughCode()``          |NULL                         | DataFrame with data for all borough codes  |
 | ``getBoroughWards()``          |NULL                         | DataFrame with data for all borough wards code prefix  |
 | ``getLondonWards()``          |NULL                         | SpatialPolygonsDataFrame with boundaries for all London wards  |
 | ``getBoroughs()``          |NULL                         | DataFrame with data for all boroughs  |
-| ``getBoroughBoundary()``          |``borough``                         | SpatialPolygonsDataFrame with boundaries for a given borough  |
-| ``getBoroughWards()``     | ``borough``                  |   SpatialPolygonsDataFrame with ward boundaries for a given borough |
-|``getBoroughTrees()``       | ``borough``                | SpatialPointsDataFrame with trees in a given borough.  |
 | ``getTrees()``         |       NULL                |            SpatialPolygonsDataFrame with all the trees    |
 | ``getTreesDf()``         |       NULL                |            DataFrame containing all the source tree data    |
 |``getLondonWards()``        | NULL                    |  SpatialPolygonsDataFrame with boundaries for all the wards |
