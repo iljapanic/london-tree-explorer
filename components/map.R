@@ -4,8 +4,9 @@ min_zoom = 9
 max_zoom = 18
 initial_zoom = 10
 green_palette = brewer.pal(n = 5, name = 'Greens')
-heatmap_pallete_source = brewer.pal(n=9, name='YlGn')
-heatmap_pallete = colorRampPalette(heatmap_pallete_source)(n = 100)
+heatmap_pallete_source = c('white','yellow', 'yellow2', 'green', 'green2', 'green4')
+heatmap_pallete = colorRampPalette(c(heatmap_pallete_source))(100)
+
 marker_color = '#79B670'
 tree_size = 3
 borough_overlay = '#999999'
@@ -117,16 +118,18 @@ mapBoroughTreeHeatmap = function(borough) {
       fillOpacity = 0.25
     ) %>%
     addHeatmap(
-      radius = 8,
-      # cellSize = 14,
-      blur = 12,
-      max = 0.65,
+      radius = 15,
+      cellSize = 16,
+      blur = 15,
+      max = 0.15,
       gradient = heatmap_pallete
     )
   
   return(map)
   
 }
+
+mapBoroughTreeHeatmap('City of London')
 
 
 
